@@ -1,4 +1,4 @@
-# Crypto Dashboard
+# Binance Order Book
 
 ## Overview
 
@@ -36,31 +36,76 @@ This project is a cryptocurrency dashboard that provides real-time market data, 
    cd binance-order-book
    ```
 
-2. **Install Dependencies**:
-
-   ```sh
-   npm install
-   cd frontend
-   npm install
-   ```
-
-3. **Run the Backend Server**:
+2. **Install Backend Dependencies**:
 
    ```sh
    cd backend
+   npm install
+   ```
+
+3. **Install Frontend Dependencies**:
+
+   ```sh
+   cd ../frontend
+   npm install
+   ```
+
+4. **Run the Backend Server** (In the `backend` folder):
+
+   ```sh
    node server.js
    ```
 
-4. **Run the Frontend Application**:
+5. **Run the Frontend Application** (In the `frontend` folder):
 
    ```sh
-   cd frontend
    npm start
    ```
 
-5. **Access the Application**:
+6. **Access the Application**:
 
    Open your browser and navigate to `http://localhost:3000`.
+
+## Code Structure
+
+```plaintext
+binance-order-book/
+├── backend/
+│   ├── package.json
+│   ├── server.js
+│   └── services/
+│       └── binanceService.js
+├── frontend/
+│   ├── src/
+│   │   ├── App.js
+│   │   ├── components/
+│   │   │   ├── DepthChart.js
+│   │   │   ├── MarketData.js
+│   │   │   ├── OrderBook.js
+│   │   │   ├── PriceAlert.js
+│   │   │   └── SearchBar.js
+│   │   ├── App.css
+│   │   ├── index.js
+│   │   └── ...
+│   ├── package.json
+│   └── ...
+└── README.md
+```
+
+### Backend
+
+- **server.js**: Main server file that sets up the Express server and Socket.io for real-time communication.
+- **services/binanceService.js**: Handles API requests to the Binance Public API.
+
+### Frontend
+
+- **App.js**: Main React component that renders the dashboard.
+- **components/**: Contains individual React components for different parts of the dashboard:
+  - **DepthChart.js**: Displays the order book depth chart.
+  - **MarketData.js**: Shows real-time market data.
+  - **OrderBook.js**: Displays the order book for selected cryptocurrency.
+  - **PriceAlert.js**: Allows users to set price alerts.
+  - **SearchBar.js**: Provides a search bar to input the cryptocurrency symbol.
 
 ## Responsible Data Usage
 
